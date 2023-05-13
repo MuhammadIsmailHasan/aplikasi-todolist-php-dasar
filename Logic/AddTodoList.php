@@ -1,6 +1,6 @@
 <?php
 
-function AddTodoList (string $todo) {
+function AddTodoList (string $todo) : bool {
     global $todoList;
 
     if (!empty($todoList)) {
@@ -10,9 +10,9 @@ function AddTodoList (string $todo) {
     }
 
     if (in_array($todo, $todoList)) {
-        echo "Berhasil menambahkan data!" . PHP_EOL;
+        return true;
     } else {
-        echo "Gagal menambahkan data!" . PHP_EOL;
+        return false;
     }
 
 }

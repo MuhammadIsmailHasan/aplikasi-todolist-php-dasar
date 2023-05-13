@@ -1,16 +1,16 @@
 <?php
 
-function RemoveTodoList (int $number) {
+function RemoveTodoList (int $number) : bool {
     global $todoList;
 
     if ($number <= sizeof($todoList)) {
-        $todoRemoved = $todoList[$number];
+
         for ($i= $number; $i < sizeof($todoList); $i++) { 
             $todoList[$i] = $todoList[$i + 1];
         }
         unset($todoList[sizeof($todoList)]);
-        echo "Berhasil menghapus todo nomor $number yakni $todoRemoved" . PHP_EOL;
+        return true;
     } else {
-        echo "Todo nomor $number tidak ada!" . PHP_EOL;
+        return false;
     }
 }
